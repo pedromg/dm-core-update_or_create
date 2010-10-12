@@ -1,0 +1,16 @@
+DataMapper::Model
+
+- update_or_create(conditions = {}, attributes = {}, merger = true)
+
+  method that allows a model to be:
+   -updated with attributes, based on search conditions, or;
+   -created upon previous merge (or not) of the conditions and attributes;
+
+Example:
+
+ Article.update_or_create({:id => 10}, {:name => "Spirou meet Franquin})
+   - if Article with 'id' 10 exists then it will receive a new name
+   - if Article with 'id' 10 doesn't exist, it will be created with {:id => 10, :name => "Spirou meet Franquin"}
+
+ Article.update_or_create({:id => 11}, {:name => "Fantasio meet Franquin}, false)
+   - if Article with 'id' 11 doesn't exist, it will be created with {:name => "Spirou meet Franquin"}
