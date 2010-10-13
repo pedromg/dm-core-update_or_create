@@ -6,7 +6,7 @@ module DataMapper
     # merge = true => merges conditions to attributes and passes the merge to the create method
     # merge = false => only attributes are passed into the create method
     def update_or_create(conditions = {}, attributes = {}, merger = true)
-      (first(conditions) && update(attributes)) || create(merger ? (conditions.merge(attributes)) : attributes )
+      (first(conditions) && first(conditions).update(attributes)) || create(merger ? (conditions.merge(attributes)) : attributes )
     end
 
   end # Module Model
