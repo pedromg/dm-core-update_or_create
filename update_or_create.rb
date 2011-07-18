@@ -9,6 +9,7 @@ module DataMapper
     # @param[Boolean] Merger is a boolean that determines if the conditions are merged with the attributes upon create.
     #   If true, merges conditions to attributes and passes the merge to the create method;
     #   If false, only attributes are passed into the create method
+    # @return[Object] DataMapper object 
     def update_or_create(conditions = {}, attributes = {}, merger = true)
       begin
 	if (row = first(conditions))
